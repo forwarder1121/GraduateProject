@@ -3,7 +3,7 @@
 ## 폴더 구조
 
 ```plaintext
-/workspace/UndergraduateResearchAssistant/GraduateProject/code/CREMA-D/donghwan/
+/workspace/UndergraduateResearchAssistant/GraduateProject/code/TESS/donghwan/
   ├── mfcc/
   │   ├── ResNetCNN/
   │   │   ├── lr_1e-5/
