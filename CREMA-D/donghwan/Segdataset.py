@@ -76,7 +76,7 @@ def read_test_file_list(root, feature_type, n_mfcc, n_mels, target_length=16000 
 
 
 # K-Fold 데이터셋 생성 함수
-def get_kfold_data(root, feature_type='mfcc', n_mfcc=20, n_mels=128, k_folds=5, random_state=1, target_length=16000 * 2.5):
+def get_kfold_data(root, feature_type, n_mfcc=20, n_mels=128, k_folds=5, random_state=1, target_length=16000 * 2.5):
     mfcc_list, emotion_list = read_test_file_list(root=root, feature_type=feature_type, n_mfcc=n_mfcc, n_mels=n_mels, target_length=target_length)
 
     skf = StratifiedKFold(n_splits=k_folds, shuffle=True, random_state=random_state)
