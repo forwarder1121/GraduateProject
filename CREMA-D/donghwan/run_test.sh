@@ -4,7 +4,7 @@
 learning_rates=("1e-5" "3e-5" "5e-5")
 
 # 피처 타입 배열 정의
-feature_types=("mfcc" "mel")
+feature_types=("mfcc")
 
 # 모델 배열 정의
 models=("ResNetCNN" "VGG_CNN" "CNN")

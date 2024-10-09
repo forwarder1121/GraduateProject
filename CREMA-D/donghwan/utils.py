@@ -3,7 +3,21 @@ import librosa
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score,confusion_matrix,precision_score,recall_score,f1_score
 
-def normalizeVoiceLen(y,normalizedLen):
+# 멜 스펙트로그램 추출 함수
+def get_melspectrogram(y, sr, n_mels, n_fft):
+    mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=n_mels, n_fft=n_fft,
+                                                     hop_length=int(n_fft / 4), fmax=sr // 2)
+    mel_spectrogram_db = librosa.power_to_db(mel_spectrogram, ref=np.max)
+    return mel_spectrogram_db
+
+# MFCC 추출 함수
+def get_mfcc(y, sr, n_mfcc, n_fft):
+    mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=n_mfcc, n_fft=n_fft,
+                                hop_length=int(n_fft / 4), fmax=sr // 2)
+    return mfcc
+
+
+def normalize_voice_len(y,normalizedLen):
     nframes=len(y)
     y = np.reshape(y,[nframes,1]).T
 
@@ -27,44 +41,35 @@ def getNearestLen(framelength,sr):
     framesize = int(sortlist[0][0])
     return framesize
 
-def get_mfcc(path,n_mfcc):
-    y,sr = librosa.load(path,sr=16000)
-    VOICE_LEN=40000
-
-    N_FFT=getNearestLen(0.25,sr)
-
-    y=normalizeVoiceLen(y,VOICE_LEN)
-
-    mfcc_data=librosa.feature.mfcc(y=y, sr=sr,n_mfcc=n_mfcc,n_fft=N_FFT,hop_length=int(N_FFT/4),fmax = sr//2)
-    return mfcc_data
-
-def plot_confusion_matrix(y_true, y_pred, labels):
+def plot_confusion_matrix(y_true, y_pred, labels, ax=None):
+    if ax is None:
+        ax = plt.gca()
     # y_true와 y_pred가 1차원인지 확인
     y_true = np.array(y_true).flatten()
     y_pred = np.array(y_pred).flatten()
 
-    plt.figure()
     num = len(labels)
     
     # confusion matrix 생성
+    from sklearn.metrics import confusion_matrix
     C = confusion_matrix(y_true=y_true, y_pred=y_pred, labels=range(num))
     
     # confusion matrix 시각화
-    plt.matshow(C, cmap=plt.cm.Reds)
+    im = ax.matshow(C, cmap=plt.cm.Reds)
     
     # matrix 값 추가
     for i in range(C.shape[0]):
         for j in range(C.shape[1]):
-            plt.text(j, i, str(C[i, j]), ha='center', va='center', color='black')
+            ax.text(j, i, str(C[i, j]), ha='center', va='center', color='black')
     
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
+    ax.set_ylabel('True label')
+    ax.set_xlabel('Predicted label')
     
     # X축과 Y축에 라벨 추가
-    plt.xticks(range(num), labels=labels)
-    plt.yticks(range(num), labels=labels)
-
-    # plt.show()  # confusion matrix 시각화
+    ax.set_xticks(range(num))
+    ax.set_yticks(range(num))
+    ax.set_xticklabels(labels)
+    ax.set_yticklabels(labels)
 
 
 def get_evaluation(y_true, y_pred):

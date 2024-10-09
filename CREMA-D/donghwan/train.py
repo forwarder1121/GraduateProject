@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 
 # CUDA 장치 설정
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 # 사용자 정의 모듈 임포트
 from models import CNN, VGG_CNN, ResNetCNN
@@ -99,6 +99,9 @@ def main():
             # 학습 루프
             for features, emotion in train_loader:
                 features, emotion = features.to(device), emotion.to(device)
+                print(f"features shape = {features.shape}")
+                print(f"emotion shape = {emotion.shape}")
+
                 optimizer.zero_grad()
 
                 # 모델 예측 및 손실 계산
