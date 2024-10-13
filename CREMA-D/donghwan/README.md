@@ -43,6 +43,32 @@
 - `test.py`: 학습된 모델을 테스트하는 스크립트.
 - `aggregate_results.py`: 모든 폴드와 학습률에 대한 결과를 종합하여 요약하는 스크립트.
 
+
+
+
+
+## Hyperparameters and Training Environment
+
+| Argument        | Type      | Default Value  | Description                                             |
+|-----------------|-----------|----------------|---------------------------------------------------------|
+| **learning_rate** | float     | 1e-4           | Learning rate for the optimizer                          |
+| **model_type**    | str       | 'VGG_CNN'      | Model type to use (choices: ['CNN', 'VGG_CNN', 'ResNetCNN']) |
+| **feature_type**  | str       | 'mfcc'         | Feature type to use (choices: ['mfcc'])                   |
+| **n_mfcc**        | int       | 20             | Number of MFCC features to extract                       |
+| **n_mels**        | int       | 128            | Number of Mel spectrogram features to extract            |
+| **epoch**         | int       | 500            | Number of training epochs                                |
+| **batch_size**    | int       | 64             | Batch size for training                                  |
+| **num_workers**   | int       | 16             | Number of worker processes for data loading              |
+| **n_splits**      | int       | 5              | Number of splits for KFold cross-validation              |
+
+### Early Stopping Logic
+The early stopping mechanism is introduced to halt training when the model stops improving based on validation performance, reducing overfitting and saving computational resources.
+
+
+
+---
+
+
 ## 실험 결과 요약 (MFCC Feature)
 
 | 모델      | 학습률  | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | 평균 정확도 | 평균 F1 스코어 | 평균 정밀도 | 평균 재현율 |
@@ -58,10 +84,7 @@
 | VGG_CNN   | 5e-05   | 0.768  | 0.764  | 0.774  | 0.758  | 0.767  | 0.766       | 0.820         | 0.866       | 0.779       |
 
 
-
-## MFCC 조기종료 적용 (10.14)
-
-
+## 실험 결과 요약 (Mel Feature)
 | 모델        | 학습률  | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | 평균 정확도 | 평균 F1 스코어 | 평균 정밀도 | 평균 재현율 |
 |-------------|---------|--------|--------|--------|--------|--------|-------------|----------------|-------------|-------------|
 | CNN         | 1e-05   | 0.738  | 0.731  | 0.750  | 0.731  | 0.737  | 0.7374      | 0.7934         | 0.8582      | 0.7376      |
