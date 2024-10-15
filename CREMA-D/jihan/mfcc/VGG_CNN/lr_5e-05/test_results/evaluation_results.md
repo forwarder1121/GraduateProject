@@ -1,0 +1,294 @@
+# Evaluation Results for VGG_CNN with mfcc Features
+## Learning Rate: 5e-05
+
+### Fold 1
+- Accuracy: 0.839
+- Precision: 0.958
+- Recall: 0.836
+- F1 Score: 0.893
+
+### Fold 2
+- Accuracy: 0.730
+- Precision: 0.934
+- Recall: 0.712
+- F1 Score: 0.808
+
+### Fold 3
+- Accuracy: 0.825
+- Precision: 0.943
+- Recall: 0.831
+- F1 Score: 0.883
+
+### Fold 4
+- Accuracy: 0.839
+- Precision: 0.963
+- Recall: 0.831
+- F1 Score: 0.892
+
+### Fold 5
+- Accuracy: 0.847
+- Precision: 0.963
+- Recall: 0.840
+- F1 Score: 0.898
+
+## Average Metrics
+- Average Accuracy: 0.816
+- Average Precision: 0.952
+- Average Recall: 0.810
+- Average F1 Score: 0.875
+
+## Misclassified Samples
+| Filename | Emotion Class | Emotion Level | True Label | Predicted Label |
+|----------|---------------|---------------|------------|-----------------|
+| 1062_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1079_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1066_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1060_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1003_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1088_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1085_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1039_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1036_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1050_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1077_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1064_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1069_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1010_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1079_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1058_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1024_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1021_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1063_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1078_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1002_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1065_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1031_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1008_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1027_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1079_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1088_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1023_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1072_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1036_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1078_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1074_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1038_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1058_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1070_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1042_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1039_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1039_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1035_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1040_ITH_SAD_X.wav | SAD | X | 1 | 0 |
+| 1014_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1007_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1071_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1079_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1028_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1042_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1007_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1087_IEO_DIS_LO.wav | DIS | LO | 1 | 0 |
+| 1072_IEO_SAD_LO.wav | SAD | LO | 1 | 0 |
+| 1062_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1079_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1066_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1026_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1060_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1037_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1003_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1088_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1080_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1039_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1065_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1036_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1003_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1005_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1077_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1082_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1064_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1069_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1040_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1010_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1070_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1032_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1079_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1058_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1024_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1021_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1063_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1090_IEO_SAD_MD.wav | SAD | MD | 1 | 0 |
+| 1018_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1087_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1030_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1078_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1088_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1084_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1072_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1013_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1065_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1031_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1019_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1011_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1008_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1027_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1079_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1043_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1068_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1088_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1039_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1034_IEO_SAD_MD.wav | SAD | MD | 1 | 0 |
+| 1072_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1003_IEO_DIS_LO.wav | DIS | LO | 1 | 0 |
+| 1046_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1077_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1004_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1074_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1010_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1005_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1049_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1069_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1070_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1039_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1035_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1073_IEO_DIS_LO.wav | DIS | LO | 1 | 0 |
+| 1040_ITH_SAD_X.wav | SAD | X | 1 | 0 |
+| 1041_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1091_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1014_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1007_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1071_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1079_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1018_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1060_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1037_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1049_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1080_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1065_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1036_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1024_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1050_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1069_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1077_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1069_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1070_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1032_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1020_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1058_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1024_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1021_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1079_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1017_IEO_SAD_LO.wav | SAD | LO | 1 | 0 |
+| 1012_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1065_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1046_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1031_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1019_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1025_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1011_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1008_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1043_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1088_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1023_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1072_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1065_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1006_IEO_DIS_LO.wav | DIS | LO | 1 | 0 |
+| 1074_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1010_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1078_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1035_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1077_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1022_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1039_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1035_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1073_IEO_DIS_LO.wav | DIS | LO | 1 | 0 |
+| 1040_ITH_SAD_X.wav | SAD | X | 1 | 0 |
+| 1041_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1007_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1071_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1002_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1042_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1007_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1079_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1038_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1060_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1088_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1025_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1066_IEO_SAD_MD.wav | SAD | MD | 1 | 0 |
+| 1036_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1050_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1069_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1077_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1069_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1050_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1032_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1079_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1058_IEO_SAD_HI.wav | SAD | HI | 1 | 0 |
+| 1063_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1018_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1087_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1078_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1059_IEO_SAD_LO.wav | SAD | LO | 1 | 0 |
+| 1065_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1046_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1031_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1043_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1068_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1010_IEO_SAD_LO.wav | SAD | LO | 1 | 0 |
+| 1088_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1072_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1065_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1077_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1074_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1074_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1069_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1042_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1022_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1040_ITH_SAD_X.wav | SAD | X | 1 | 0 |
+| 1014_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1007_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1071_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1050_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1079_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1002_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1042_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1079_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1038_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1060_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1088_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1049_IEO_HAP_HI.wav | HAP | HI | 0 | 1 |
+| 1080_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1084_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1039_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1003_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1050_IEO_ANG_HI.wav | ANG | HI | 1 | 0 |
+| 1050_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1077_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1080_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1064_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1069_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1070_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1032_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1079_IEO_DIS_HI.wav | DIS | HI | 1 | 0 |
+| 1020_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1024_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1063_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1018_IEO_HAP_LO.wav | HAP | LO | 0 | 1 |
+| 1030_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1078_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1065_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1031_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1008_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1088_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1023_IEO_FEA_LO.wav | FEA | LO | 1 | 0 |
+| 1072_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1077_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1044_IEO_DIS_MD.wav | DIS | MD | 1 | 0 |
+| 1074_IEO_FEA_MD.wav | FEA | MD | 1 | 0 |
+| 1049_IEO_FEA_HI.wav | FEA | HI | 1 | 0 |
+| 1035_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |
+| 1040_ITH_SAD_X.wav | SAD | X | 1 | 0 |
+| 1014_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1007_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1071_IEO_ANG_MD.wav | ANG | MD | 1 | 0 |
+| 1079_IEO_ANG_LO.wav | ANG | LO | 1 | 0 |
+| 1002_IEO_HAP_MD.wav | HAP | MD | 0 | 1 |

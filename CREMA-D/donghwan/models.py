@@ -18,7 +18,7 @@ class CNN(nn.Module):
         self.fc1 = nn.Linear(128, 1)
 
     def forward(self, x):
-        x = x.permute(0, 2, 1)  # [batch_size, sequence_length, features]
+        #x = x.permute(0, 2, 1)  # [batch_size, sequence_length, features]
         x = self.cnn(x)
         x = x.squeeze()
         emotion = self.fc1(x)
@@ -45,7 +45,7 @@ class ResNetCNN(nn.Module):
         self.fc1 = nn.Linear(128, 1)
 
     def forward(self, x):
-        x = x.permute(0, 2, 1)  # [batch_size, features, sequence_length]
+        #x = x.permute(0, 2, 1)  # [batch_size, features, sequence_length]
 
         # Initial Conv
         x = self.initial_conv(x)
@@ -138,7 +138,7 @@ class VGG_CNN(nn.Module):
         )
 
     def forward(self, x):
-        x = x.permute(0, 2, 1)  # [batch_size, features, sequence_length]
+        #x = x.permute(0, 2, 1)  # [batch_size, features, sequence_length]
 
         x = self.features(x)
         emotion = self.classifier(x)

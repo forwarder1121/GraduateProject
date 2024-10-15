@@ -21,11 +21,11 @@ def main():
     parser = argparse.ArgumentParser(description="Train model with specified hyperparameters and features")
     parser.add_argument('--learning_rate', type=float, default=1e-4, help='Learning rate for the optimizer')
     parser.add_argument('--model_type', type=str, default='VGG_CNN', choices=['CNN', 'VGG_CNN', 'ResNetCNN'], help='Model type to use')
-    parser.add_argument('--feature_type', type=str, default='mfcc', choices=['mfcc', 'mel'], help='Feature type to use: mfcc or mel')
+    parser.add_argument('--feature_type', type=str, default='mfcc', choices=['mfcc'], help='Feature type to use: mfcc or mel')
     parser.add_argument('--n_mfcc', type=int, default=20, help='Number of MFCC features to extract')
     parser.add_argument('--n_mels', type=int, default=128, help='Number of Mel spectrogram features to extract')
-    parser.add_argument('--epoch', type=int, default=100, help='Number of training epochs')
-    parser.add_argument('--batch_size', type=int, default=1028, help='Batch size for training')
+    parser.add_argument('--epoch', type=int, default=500, help='Number of training epochs')
+    parser.add_argument('--batch_size', type=int, default=64, help='Batch size for training')
     parser.add_argument('--num_workers', type=int, default=16, help='Number of worker processes for data loading')
     parser.add_argument('--n_splits', type=int, default=5, help='Number of splits for KFold cross-validation')
 
@@ -46,9 +46,6 @@ def main():
     if args.feature_type == 'mfcc':
         fold_data = get_kfold_data(root='/workspace/dataset/CREMA-D/train', n_mfcc=args.n_mfcc, feature_type='mfcc')
         in_channels = args.n_mfcc
-    elif args.feature_type == 'mel':
-        fold_data = get_kfold_data(root='/workspace/dataset/CREMA-D/train', n_mfcc=args.n_mels, feature_type='mel')
-        in_channels = args.n_mels
     else:
         raise ValueError(f"Invalid feature type specified: {args.feature_type}")
 
@@ -82,13 +79,16 @@ def main():
         criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight).to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
 
+        # Early Stopping 관련 설정
+        patience = 15  # Early stopping patience (연속으로 개선되지 않는 최대 에포크 수)
+        best_val_loss = float('inf')
+        best_epoch = 0
+        epochs_no_improve = 0  # 개선되지 않은 에포크 수
+
         # 현재 폴드 값들 저장
         train_losses = []
         val_losses = []
         val_accuracies = []
-
-        best_val_loss = float('inf')
-        best_epoch = 0
 
         # 에포크 루프
         for epo in range(args.epoch):
@@ -99,8 +99,7 @@ def main():
             # 학습 루프
             for features, emotion in train_loader:
                 features, emotion = features.to(device), emotion.to(device)
-                print(f"features shape = {features.shape}")
-                print(f"emotion shape = {emotion.shape}")
+
 
                 optimizer.zero_grad()
 
@@ -137,11 +136,19 @@ def main():
             # 결과 출력
             print(f"Fold {fold + 1} | Epoch {epo} | Train Loss: {train_loss / len(train_loader)} | Val Loss: {val_loss / len(val_loader)} | Val Accuracy: {val_accuracy}")
 
-            # 모델 저장
+            # Early Stopping 체크
             if val_loss < best_val_loss:
                 best_val_loss = val_loss
                 best_epoch = epo
                 torch.save(model.state_dict(), os.path.join(save_root, f'fold_{fold + 1}_best_epoch_lr_{args.learning_rate}.pth'))
+                epochs_no_improve = 0  # 성능이 개선되었으므로 초기화
+            else:
+                epochs_no_improve += 1
+
+            # Early Stopping 조건을 만족하는 경우 학습 중단
+            if epochs_no_improve >= patience:
+                print(f"Early stopping at epoch {epo} for fold {fold + 1} due to no improvement for {patience} epochs.")
+                break
 
             train_losses.append(train_loss / len(train_loader))
             val_losses.append(val_loss / len(val_loader))

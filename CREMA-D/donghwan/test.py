@@ -99,11 +99,7 @@ def main():
             for features, emotion, filename in test_loader:
                 features, emotion = features.to(device), emotion.to(device)
 
-                # 입력 데이터 차원 변경 (채널 차원 추가 및 순서 변경)
-                if features.dim() == 2:
-                    features = features.unsqueeze(0)
-                features = features.permute(0, 2, 1)  # (batch_size, channels, seq_len)
-
+               
                 output_emotion = model(features)
                 output_emotion = torch.sigmoid(output_emotion)
                 predicted_emotion = (output_emotion > 0.5).float()

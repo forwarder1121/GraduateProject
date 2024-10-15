@@ -3,7 +3,7 @@
 # 학습률 배열 정의
 learning_rates=("1e-5" "3e-5" "5e-5")
 
-# 피처 타입 배열 정의
+# 피처 타입 배열 viplab4135정의
 feature_types=("mfcc")
 
 # 모델 배열 정의
@@ -27,5 +27,5 @@ echo "모든 테스트 작업이 완료되었습니다."
 
 # 모든 결과를 종합하는 aggregate_results.py 실행
 echo "결과 종합 시작"
-python aggregate_results.py --results_root /workspace/UndergraduateResearchAssistant/GraduateProject/code/CREMA-D/donghwan/ --output_file aggregated_results.md
+python aggregate_results.py --test_data_root /workspace/dataset/CREMA-D/test --results_root /workspace/UndergraduateResearchAssistant/GraduateProject/code/CREMA-D/donghwan/ --output_file aggregated_results.xlsx             
 echo "결과 종합 완료 - 결과는 aggregated_results.md 파일에 저장되었습니다."

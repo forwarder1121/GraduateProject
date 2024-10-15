@@ -4,9 +4,9 @@ from sklearn.model_selection import train_test_split
 from collections import Counter
 
 # CREMA-D 데이터셋 경로 설정
-original_data_path = '/workspace/dataset/CREMA-D/OriginalData'
-train_root = '/workspace/dataset/CREMA-D/train'
-test_root = '/workspace/dataset/CREMA-D/test'
+original_data_path = '/workspace/dataset/CREMA-D/fulldata_without_XX'
+train_root = '/workspace/dataset/CREMA-D/train_without_XX'
+test_root = '/workspace/dataset/CREMA-D/test_without_XX'
 
 # 폴더가 없으면 생성
 os.makedirs(train_root, exist_ok=True)
