@@ -43,6 +43,45 @@
 - `test.py`: 학습된 모델을 테스트하는 스크립트.
 - `aggregate_results.py`: 모든 폴드와 학습률에 대한 결과를 종합하여 요약하는 스크립트.
 
+
+## MFCC 조기종료 적용 (10.14)
+
+## Hyperparameters and Training Environment
+
+| Argument        | Type      | Default Value  | Description                                             |
+|-----------------|-----------|----------------|---------------------------------------------------------|
+| **learning_rate** | float     | 1e-4           | Learning rate for the optimizer                          |
+| **model_type**    | str       | 'VGG_CNN'      | Model type to use (choices: ['CNN', 'VGG_CNN', 'ResNetCNN']) |
+| **feature_type**  | str       | 'mfcc'         | Feature type to use (choices: ['mfcc'])                   |
+| **n_mfcc**        | int       | 20             | Number of MFCC features to extract                       |
+| **n_mels**        | int       | 128            | Number of Mel spectrogram features to extract            |
+| **epoch**         | int       | 500            | Number of training epochs                                |
+| **batch_size**    | int       | 64             | Batch size for training                                  |
+| **num_workers**   | int       | 16             | Number of worker processes for data loading              |
+| **n_splits**      | int       | 5              | Number of splits for KFold cross-validation              |
+
+### Early Stopping Logic
+The early stopping mechanism is introduced to halt training when the model stops improving based on validation performance, reducing overfitting and saving computational resources.
+
+
+
+| 모델        | 학습률  | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | 평균 정확도 | 평균 F1 스코어 | 평균 정밀도 | 평균 재현율 |
+|-------------|---------|--------|--------|--------|--------|--------|-------------|----------------|-------------|-------------|
+| CNN         | 1e-05   | 0.738  | 0.731  | 0.750  | 0.731  | 0.737  | 0.7374      | 0.7934         | 0.8582      | 0.7376      |
+| CNN         | 3e-05   | 0.730  | 0.729  | 0.757  | 0.728  | 0.745  | 0.7378      | 0.7936         | 0.8586      | 0.7376      |
+| CNN         | 5e-05   | 0.747  | 0.743  | 0.736  | 0.740  | 0.731  | 0.7394      | 0.7942         | 0.8628      | 0.7360      |
+| ResNetCNN   | 1e-05   | 0.748  | 0.772  | 0.769  | 0.783  | 0.760  | 0.7664      | 0.8206         | 0.8636      | 0.7816      |
+| ResNetCNN   | 3e-05   | 0.788  | 0.793  | 0.753  | 0.770  | 0.766  | 0.7740      | 0.8256         | 0.8730      | 0.7838      |
+| ResNetCNN   | 5e-05   | 0.766  | 0.764  | 0.754  | 0.770  | 0.774  | 0.7656      | 0.8156         | 0.8810      | 0.7594      |
+| VGG_CNN     | 1e-05   | 0.766  | 0.754  | 0.774  | 0.777  | 0.779  | 0.7700      | 0.8210         | 0.8748      | 0.7740      |
+| VGG_CNN     | 3e-05   | 0.753  | 0.770  | 0.776  | 0.755  | 0.774  | 0.7656      | 0.8178         | 0.8722      | 0.7700      |
+| VGG_CNN     | 5e-05   | 0.764  | 0.776  | 0.754  | 0.774  | 0.726  | 0.7588      | 0.8096         | 0.8762      | 0.7550      |
+
+
+
+
+---
+
 ## 실험 결과 요약 (MFCC Feature)
 
 | 모델      | 학습률  | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | 평균 정확도 | 평균 F1 스코어 | 평균 정밀도 | 평균 재현율 |
@@ -56,6 +95,9 @@
 | VGG_CNN   | 1e-05   | 0.706  | 0.724  | 0.713  | 0.717  | 0.711  | 0.714       | 0.771         | 0.849       | 0.707       |
 | VGG_CNN   | 3e-05   | 0.767  | 0.760  | 0.741  | 0.770  | 0.761  | 0.760       | 0.814         | 0.866       | 0.767       |
 | VGG_CNN   | 5e-05   | 0.768  | 0.764  | 0.774  | 0.758  | 0.767  | 0.766       | 0.820         | 0.866       | 0.779       |
+
+
+
 
 ## 실험 결과 요약 (Mel Feature)
 
